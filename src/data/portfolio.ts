@@ -179,67 +179,6 @@ export const projects: Project[] = [
     tech: ['Strands SDK', 'Bedrock AgentCore', 'RAG', 'MCP', 'Lambda', 'Terragrunt', 'LLM-as-judge'],
     href: '#',
   },
-  {
-    id: 'mlops-decathlon',
-    featured: false,
-    span: 7,
-    tag: 'Decathlon · 2024–25',
-    titleParts: [
-      [{ text: 'Plateforme ' }, { text: 'MLOps', italic: true }],
-      [{ text: 'forecast supply' }],
-    ],
-    desc: 'Pipelines Databricks + Spark + Airflow pour ingestion et training à grande échelle. Monitoring drift continu (Great Expectations + PagerDuty), backfill, CI/CD complet.',
-    tech: ['Databricks', 'Spark', 'Airflow', 'Great Expectations'],
-    href: '#',
-  },
-  {
-    id: '2min-chrono',
-    featured: false,
-    span: 5,
-    tag: "L'Équipe · 2024",
-    titleParts: [
-      [{ text: '2 Minutes ' }, { text: 'Chrono', italic: true }],
-    ],
-    desc: 'Pipeline GenAI quotidien : actu → résumé → script → TTS → publication. Serverless AWS de bout en bout.',
-    tech: ['CDK', 'Step Functions', 'Bedrock', 'ElevenLabs'],
-    href: '#',
-  },
-  {
-    id: 'rag-assurance',
-    featured: false,
-    span: 4,
-    tag: '+Simple · 2024',
-    titleParts: [
-      [{ text: 'RAG ' }, { text: 'assurance', italic: true }],
-    ],
-    desc: 'Assistant GenAI sur documentation produit, avec guardrails et eval.',
-    tech: ['RAG', 'Guardrails'],
-    href: '#',
-  },
-  {
-    id: 'llm-benchmarks',
-    featured: false,
-    span: 4,
-    tag: 'Aircall · 2023–24',
-    titleParts: [
-      [{ text: 'LLM ' }, { text: 'benchmarks', italic: true }, { text: ' & STT/TTS' }],
-    ],
-    desc: 'Chatbots RAG, benchmarks LLM, déploiement STT/TTS à l\'échelle, observabilité Datadog.',
-    tech: ['LLM Eval', 'STT/TTS'],
-    href: '#',
-  },
-  {
-    id: 'v2g-forecasting',
-    featured: false,
-    span: 4,
-    tag: 'Youree · 2020–23',
-    titleParts: [
-      [{ text: 'V2G ' }, { text: 'forecasting', italic: true }],
-    ],
-    desc: 'Time series et segmentation pour véhicule-to-grid. Cycle ML complet sur Terraform.',
-    tech: ['LSTM', 'XGBoost', 'Terraform'],
-    href: '#',
-  },
 ]
 
 export const skillCategories: SkillCategory[] = [
