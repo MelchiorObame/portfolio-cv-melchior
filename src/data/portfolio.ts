@@ -104,28 +104,6 @@ export const experience: Experience[] = [
     desc: 'Prévisions séries temporelles (ARIMA, LSTM, GRU, XGBoost), segmentation client (KMeans, DBSCAN), infra Terraform, cycle ML complet (CI/CD, API, monitoring). R&D avec l\'UTT, conférences, mentorat alternants.',
     tags: ['Time Series', 'LSTM / GRU', 'XGBoost', 'Terraform', 'R&D'],
   },
-  {
-    id: 'clenzics',
-    period: 'mars 2020 — août 2020',
-    duration: 'stage · 6 mois',
-    company: 'Clenzics Technologies',
-    role: 'Stagiaire Data Scientist',
-    via: null,
-    location: null,
-    desc: 'Prévisions séries temporelles (ARIMA, RNN AR2N2, LSTM, GRU), mise en production AWS, CI/CD MLOps.',
-    tags: ['TensorFlow', 'Keras', 'AWS'],
-  },
-  {
-    id: 'siemens',
-    period: 'mai 2019 — juin 2019',
-    duration: 'projet · 2 mois',
-    company: 'Siemens',
-    role: 'Projet encadré OCR — Data Science',
-    via: null,
-    location: 'Mulhouse',
-    desc: 'Reconnaissance d\'écriture manuscrite par CNN — segmentation mots / caractères puis classification. TensorFlow, Keras, OpenCV, Docker, Data Augmentation.',
-    tags: ['CNN', 'OCR', 'OpenCV'],
-  },
 ]
 
 export const projects: Project[] = [

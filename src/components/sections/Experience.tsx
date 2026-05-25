@@ -19,11 +19,19 @@ export function Experience() {
           </h2>
         </RevealWrapper>
 
-        <div className="max-w-[1100px]">
-          {experience.map((job) => (
+        <div className="max-w-[1100px] relative">
+          {/* Timeline vertical line */}
+          <div className="hidden md:block absolute left-[179px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[var(--accent)] to-transparent opacity-30" />
+
+          {experience.map((job, idx) => (
             <RevealWrapper key={job.id}>
-              <div className="group grid grid-cols-1 md:grid-cols-[180px_1fr] gap-3 md:gap-12 py-9 border-t border-[var(--line)] last:border-b last:border-[var(--line)]">
-                <div className="font-mono text-xs text-ink-3 tracking-[0.04em] pt-1.5">
+              <div className="group grid grid-cols-1 md:grid-cols-[180px_1fr] gap-3 md:gap-12 py-9 relative">
+                {/* Timeline dot */}
+                <div className="hidden md:block absolute left-[172px] top-[42px] w-3.5 h-3.5 rounded-full border-2 border-accent bg-[var(--bg)] z-10 transition-all duration-300 group-hover:bg-accent group-hover:shadow-[0_0_12px_var(--accent)]"
+                  style={{ boxShadow: idx === 0 ? '0 0 16px var(--accent)' : undefined }}
+                />
+
+                <div className="font-mono text-xs text-ink-3 tracking-[0.04em] pt-1.5 md:pr-8">
                   {job.period}
                   <br />
                   <span className="text-ink-3">{job.duration}</span>
