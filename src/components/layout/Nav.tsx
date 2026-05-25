@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion'
+import { FiGithub } from 'react-icons/fi'
 import { useActiveSection } from '../../hooks/useActiveSection'
 import { CVModal } from '../ui/CVModal'
 import { cn } from '../../lib/utils'
@@ -77,16 +78,25 @@ export function Nav() {
           })}
         </div>
 
-        {/* CTA */}
-        <button
-          onClick={() => setCvOpen(true)}
-          className="relative z-10 flex items-center gap-2 text-[13px] font-semibold px-[18px] py-2.5 rounded-full bg-ink text-[var(--bg)] hover:bg-accent hover:text-accent-ink transition-all duration-300 hover:-translate-y-0.5 group"
-        >
-          CV
-          <span className="inline-block transition-transform duration-300 group-hover:rotate-[-45deg]">
-            →
-          </span>
-        </button>
+        {/* GitHub + CTA */}
+        <div className="relative z-10 flex items-center gap-3">
+          <a
+            href="https://github.com/MelchiorObame"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="w-9 h-9 rounded-full border border-[var(--line)] flex items-center justify-center text-ink-2 hover:text-accent hover:border-accent transition-colors duration-200"
+          >
+            <FiGithub size={16} />
+          </a>
+          <button
+            onClick={() => setCvOpen(true)}
+            className="flex items-center gap-2 text-[13px] font-semibold px-[18px] py-2.5 rounded-full bg-ink text-[var(--bg)] hover:bg-accent hover:text-accent-ink transition-all duration-300 hover:-translate-y-0.5 group"
+          >
+            CV
+            <span className="inline-block transition-transform duration-300 group-hover:rotate-[-45deg]">→</span>
+          </button>
+        </div>
       </motion.nav>
 
       <CVModal open={cvOpen} onOpenChange={setCvOpen} />

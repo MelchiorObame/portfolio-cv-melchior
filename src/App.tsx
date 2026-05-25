@@ -14,8 +14,6 @@ const Education    = lazy(() => import('./components/sections/Education').then(m
 const Certifications = lazy(() => import('./components/sections/Certifications').then(m => ({ default: m.Certifications })))
 const Languages    = lazy(() => import('./components/sections/Languages').then(m => ({ default: m.Languages })))
 const Passions     = lazy(() => import('./components/sections/Passions').then(m => ({ default: m.Passions })))
-const PhotoGallery = lazy(() => import('./components/sections/PhotoGallery').then(m => ({ default: m.PhotoGallery })))
-const Links        = lazy(() => import('./components/sections/Links').then(m => ({ default: m.Links })))
 const Contact      = lazy(() => import('./components/sections/Contact').then(m => ({ default: m.Contact })))
 const TweaksPanel  = lazy(() => import('./components/dev/TweaksPanel').then(m => ({ default: m.TweaksPanel })))
 
@@ -36,8 +34,6 @@ export default function App() {
           <Certifications />
           <Languages />
           <Passions />
-          <PhotoGallery />
-          <Links />
           <Contact />
         </Suspense>
       </main>

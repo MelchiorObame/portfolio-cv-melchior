@@ -16,14 +16,19 @@ function CompanyLogo({ logo, company }: { logo?: string; company: string }) {
   )
 }
 
-function SubEntry({ job }: { job: ExperienceType }) {
+function SubEntry({ job, isLast }: { job: ExperienceType; isLast: boolean }) {
   return (
     <RevealWrapper>
       <div className="group grid grid-cols-1 md:grid-cols-[140px_1fr] gap-2 md:gap-8 py-6 relative">
+        {/* sub vertical bar — hidden on last entry */}
+        {!isLast && (
+          <div className="hidden md:block absolute left-[-28px] top-[34px] bottom-0 w-px bg-gradient-to-b from-accent/50 to-accent/10" />
+        )}
         {/* sub-dot */}
-        <div className="hidden md:block absolute left-[-33px] top-[26px] w-2.5 h-2.5 rounded-full border-2 border-[var(--line)] bg-[var(--bg)] z-10 group-hover:border-accent transition-colors duration-300" />
-        {/* sub-connector */}
-        <div className="hidden md:block absolute left-[-29px] top-0 bottom-0 w-px bg-[var(--line)]" />
+        <div
+          className="hidden md:block absolute left-[-33px] top-[26px] w-2.5 h-2.5 rounded-full border-2 border-accent bg-[var(--bg)] z-10 transition-all duration-300 group-hover:bg-accent"
+          style={{ boxShadow: '0 0 8px var(--accent)' }}
+        />
 
         <div className="font-mono text-[11px] text-ink-3 tracking-[0.04em] pt-0.5 leading-relaxed">
           {job.period}
@@ -63,8 +68,8 @@ function TopEntry({ job, isFirst }: { job: ExperienceType; isFirst: boolean }) {
       <div className="relative">
         {/* Timeline dot */}
         <div
-          className="hidden md:block absolute left-[179px] top-[38px] w-3.5 h-3.5 rounded-full border-2 border-accent bg-[var(--bg)] z-10 transition-all duration-300"
-          style={{ boxShadow: isFirst ? '0 0 14px var(--accent)' : undefined }}
+          className="hidden md:block absolute left-[172px] top-[34px] w-4 h-4 rounded-full bg-accent z-10 transition-all duration-300"
+          style={{ boxShadow: `0 0 ${isFirst ? 18 : 10}px var(--accent), 0 0 ${isFirst ? 36 : 20}px color-mix(in oklab, var(--accent) 40%, transparent)` }}
         />
 
         <div className={`group grid grid-cols-1 md:grid-cols-[180px_1fr] gap-3 md:gap-12 pt-9 pb-${hasChildren ? '4' : '9'}`}>
@@ -84,7 +89,7 @@ function TopEntry({ job, isFirst }: { job: ExperienceType; isFirst: boolean }) {
               </h3>
             </div>
 
-            <div className="text-sm text-ink-2 mb-3.5 font-mono text-xs tracking-[0.03em]">
+            <div className="text-xs text-ink-2 mb-3.5 font-mono tracking-[0.03em]">
               {job.role}
               {job.location && <span className="text-ink-3"> · {job.location}</span>}
             </div>
@@ -103,10 +108,11 @@ function TopEntry({ job, isFirst }: { job: ExperienceType; isFirst: boolean }) {
                 <p className="text-[14px] text-ink-3 leading-[1.6] max-w-[640px] mb-6 italic">{job.desc}</p>
 
                 {/* Sub-missions grouped block */}
-                <div className="relative pl-10 ml-1 border-l-2 border-accent/20">
-                  <div className="absolute -left-[1px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent/40 via-accent/20 to-transparent" />
-                  {job.children!.map((child) => (
-                    <SubEntry key={child.id} job={child} />
+                <div className="relative pl-10 ml-1">
+                  {/* sub-group vertical bar */}
+                  <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-accent/60 via-accent/30 to-accent/5" />
+                  {job.children!.map((child, ci) => (
+                    <SubEntry key={child.id} job={child} isLast={ci === job.children!.length - 1} />
                   ))}
                 </div>
               </>
@@ -138,7 +144,7 @@ export function Experience() {
 
         <div className="max-w-[1100px] relative">
           {/* Main timeline line */}
-          <div className="hidden md:block absolute left-[179px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-accent/25 to-transparent" />
+          <div className="hidden md:block absolute left-[179px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-accent/50 to-transparent" style={{ boxShadow: '0 0 6px var(--accent)' }} />
 
           <div className="border-t border-[var(--line)]">
             {experience.map((job, idx) => (
