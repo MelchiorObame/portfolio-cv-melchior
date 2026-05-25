@@ -26,6 +26,7 @@ export interface Experience {
   via: string | null
   location: string | null
   desc: string
+  bullets?: string[]     // points clés (optionnel)
   tags: string[]
   children?: Experience[] // sous-missions (consulting)
 }

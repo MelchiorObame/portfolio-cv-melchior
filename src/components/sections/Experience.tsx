@@ -49,7 +49,17 @@ function SubEntry({ job, isLast }: { job: ExperienceType; isLast: boolean }) {
             {job.location && <span className="opacity-60"> · {job.location}</span>}
           </div>
           <p className="text-[14px] text-ink-2 leading-[1.6] max-w-[660px]">{job.desc}</p>
-          <div className="flex flex-wrap gap-1.5 mt-3">
+          {job.bullets && (
+            <ul className="mt-3 flex flex-col gap-1.5 max-w-[660px]">
+              {job.bullets.map((b, i) => (
+                <li key={i} className="flex gap-2 text-[13px] text-ink-2 leading-[1.55]">
+                  <span className="text-accent mt-[5px] shrink-0">›</span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          <div className="flex flex-wrap gap-1.5 mt-4">
             {job.tags.map((tag) => (
               <TagChip key={tag}>{tag}</TagChip>
             ))}
@@ -97,9 +107,19 @@ function TopEntry({ job, isFirst }: { job: ExperienceType; isFirst: boolean }) {
             {!hasChildren && (
               <>
                 <p className="text-[15px] text-ink-2 leading-[1.6] max-w-[720px]">{job.desc}</p>
-                <div className="flex flex-wrap gap-1.5 mt-4">
-                  {job.tags.map((tag) => <TagChip key={tag}>{tag}</TagChip>)}
-                </div>
+              {job.bullets && (
+                <ul className="mt-3 flex flex-col gap-1.5 max-w-[720px]">
+                  {job.bullets.map((b, i) => (
+                    <li key={i} className="flex gap-2 text-[14px] text-ink-2 leading-[1.55]">
+                      <span className="text-accent mt-[5px] shrink-0">›</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <div className="flex flex-wrap gap-1.5 mt-4">
+                {job.tags.map((tag) => <TagChip key={tag}>{tag}</TagChip>)}
+              </div>
               </>
             )}
 
