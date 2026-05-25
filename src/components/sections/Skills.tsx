@@ -1,4 +1,6 @@
+import { FiCpu } from 'react-icons/fi'
 import { RevealWrapper } from '../ui/RevealWrapper'
+import { Eyebrow } from '../ui/Eyebrow'
 import { skillCategories } from '../../data/portfolio'
 import { cn } from '../../lib/utils'
 
@@ -7,9 +9,7 @@ export function Skills() {
     <section id="skills" style={{ background: 'var(--bg-2)' }}>
       <div className="container">
         <RevealWrapper>
-          <div className="eyebrow inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2 px-3 py-1.5 border border-[var(--line)] rounded-full mb-7 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent">
-            Stack technique — 04
-          </div>
+          <Eyebrow icon={FiCpu}>Stack technique — 04</Eyebrow>
         </RevealWrapper>
 
         <RevealWrapper>

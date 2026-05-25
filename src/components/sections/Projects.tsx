@@ -1,5 +1,7 @@
+import { FiCode } from 'react-icons/fi'
 import { RevealWrapper } from '../ui/RevealWrapper'
 import { TagChip } from '../ui/TagChip'
+import { Eyebrow } from '../ui/Eyebrow'
 import { projects } from '../../data/portfolio'
 import { cn } from '../../lib/utils'
 import type { Project } from '../../types/portfolio'
@@ -18,7 +20,7 @@ function ProjectCard({ project, delay = 0 }: { project: Project; delay?: number 
       <a
         href={project.href}
         className={cn(
-          'project-card group relative rounded-card overflow-hidden border flex flex-col justify-between p-9 min-h-[320px] transition-transform duration-400 ease-[cubic-bezier(.2,.7,.2,1)] hover:-translate-y-1.5 block',
+          'project-card group relative rounded-card overflow-hidden border flex flex-col justify-between p-9 min-h-[320px] transition-transform duration-400 ease-[cubic-bezier(.2,.7,.2,1)] hover:-translate-y-1.5',
           project.featured
             ? 'bg-ink text-[var(--bg)] border-transparent min-h-[480px]'
             : 'bg-card border-[var(--line)]',
@@ -96,9 +98,7 @@ export function Projects() {
     <section id="projects">
       <div className="container">
         <RevealWrapper>
-          <div className="inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2 px-3 py-1.5 border border-[var(--line)] rounded-full mb-7 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent">
-            Projets phares — 03
-          </div>
+          <Eyebrow icon={FiCode}>Projets phares — 03</Eyebrow>
         </RevealWrapper>
 
         <RevealWrapper>

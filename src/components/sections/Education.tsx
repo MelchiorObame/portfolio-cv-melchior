@@ -1,4 +1,6 @@
+import { FiBookOpen } from 'react-icons/fi'
 import { RevealWrapper } from '../ui/RevealWrapper'
+import { Eyebrow } from '../ui/Eyebrow'
 import { education } from '../../data/portfolio'
 
 export function Education() {
@@ -6,9 +8,7 @@ export function Education() {
     <section id="education">
       <div className="container">
         <RevealWrapper>
-          <div className="inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2 px-3 py-1.5 border border-[var(--line)] rounded-full mb-7 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent">
-            Formation — 05
-          </div>
+          <Eyebrow icon={FiBookOpen}>Formation — 05</Eyebrow>
         </RevealWrapper>
 
         <RevealWrapper>

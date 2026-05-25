@@ -1,8 +1,10 @@
+import { FiMail } from 'react-icons/fi'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { RevealWrapper } from '../ui/RevealWrapper'
 import { WordReveal } from '../ui/WordReveal'
+import { Eyebrow } from '../ui/Eyebrow'
 import { cn } from '../../lib/utils'
 
 const contactSchema = z.object({
@@ -44,9 +46,7 @@ export function Contact() {
 
       <div className="container">
         <RevealWrapper>
-          <div className="inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2 px-3 py-1.5 border border-[var(--line)] rounded-full mb-7 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent">
-            Contact — 10
-          </div>
+          <Eyebrow icon={FiMail}>Contact — 10</Eyebrow>
         </RevealWrapper>
 
         <WordReveal

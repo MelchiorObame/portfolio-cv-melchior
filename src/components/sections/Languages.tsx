@@ -1,6 +1,8 @@
+import { FiGlobe } from 'react-icons/fi'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { RevealWrapper } from '../ui/RevealWrapper'
+import { Eyebrow } from '../ui/Eyebrow'
 import { languages } from '../../data/portfolio'
 import { barFill } from '../../lib/motionVariants'
 import { useTheme } from '../../hooks/useTheme'
@@ -29,9 +31,7 @@ export function Languages() {
     <section id="langues">
       <div className="container">
         <RevealWrapper>
-          <div className="inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2 px-3 py-1.5 border border-[var(--line)] rounded-full mb-7 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent">
-            Langues — 06
-          </div>
+          <Eyebrow icon={FiGlobe}>Langues — 06</Eyebrow>
         </RevealWrapper>
 
         <RevealWrapper>

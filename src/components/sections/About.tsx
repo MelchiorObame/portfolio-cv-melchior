@@ -1,6 +1,8 @@
+import { FiUser } from 'react-icons/fi'
 import { RevealWrapper } from '../ui/RevealWrapper'
 import { WordReveal } from '../ui/WordReveal'
 import { AnimatedNumber } from '../ui/AnimatedNumber'
+import { Eyebrow } from '../ui/Eyebrow'
 import { stats } from '../../data/portfolio'
 
 export function About() {
@@ -8,9 +10,7 @@ export function About() {
     <section id="about">
       <div className="container">
         <RevealWrapper>
-          <div className="inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2 px-3 py-1.5 border border-[var(--line)] rounded-full mb-7 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent">
-            À propos — 01
-          </div>
+          <Eyebrow icon={FiUser}>À propos — 01</Eyebrow>
         </RevealWrapper>
 
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-[clamp(48px,7vw,120px)] items-start">
