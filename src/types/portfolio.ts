@@ -21,11 +21,13 @@ export interface Experience {
   period: string
   duration: string
   company: string
+  logo?: string          // chemin vers le logo (public/logos/…) — optionnel
   role: string
   via: string | null
   location: string | null
   desc: string
   tags: string[]
+  children?: Experience[] // sous-missions (consulting)
 }
 
 export interface TitlePart {
