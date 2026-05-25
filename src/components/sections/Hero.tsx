@@ -75,11 +75,18 @@ export function Hero() {
               </span>
             </h1>
 
-            <RevealWrapper delay={0.12}>
-              <div className="mt-12 flex flex-col sm:flex-row sm:items-start gap-8 sm:gap-12">
+            <RevealWrapper delay={0.1}>
+              <div className="mt-8 inline-flex items-center gap-3 px-4 py-2.5 rounded-full border border-accent/40 bg-accent/8">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                <span className="font-mono text-sm font-medium tracking-[0.06em] text-ink">
+                  AI / ML / MLOps — Senior Engineer
+                </span>
+              </div>
+            </RevealWrapper>
+
+            <RevealWrapper delay={0.18}>
+              <div className="mt-8 flex flex-col sm:flex-row sm:items-start gap-8 sm:gap-12">
                 <dl className="grid grid-cols-[auto_1fr] gap-x-5 gap-y-4 font-mono text-xs text-ink-2 tracking-[0.04em]">
-                  <dt className="uppercase text-ink-3">Rôle</dt>
-                  <dd>AI / ML / MLOps — Senior Engineer</dd>
                   <dt className="uppercase text-ink-3">Focus</dt>
                   <dd className="flex flex-wrap gap-1.5">
                     {['GenAI', 'Multi-Agent', 'MLOps', 'AWS'].map((t) => (
