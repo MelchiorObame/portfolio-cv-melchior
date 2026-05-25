@@ -19,10 +19,10 @@ export function Passions() {
           </h2>
         </RevealWrapper>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 items-stretch">
           {passions.map((p, i) => (
-            <RevealWrapper key={p.id} delay={i * 0.12}>
-              <div className="rounded-card overflow-hidden border border-[var(--line)] bg-card flex flex-col min-h-[480px] transition-transform duration-350 hover:-translate-y-1.5">
+            <RevealWrapper key={p.id} delay={i * 0.12} className="h-full">
+              <div className="h-full rounded-card overflow-hidden border border-[var(--line)] bg-card flex flex-col transition-transform duration-350 hover:-translate-y-1.5">
                 <div
                   className={cn(
                     'aspect-square overflow-hidden',

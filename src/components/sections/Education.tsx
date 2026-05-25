@@ -17,10 +17,10 @@ export function Education() {
           </h2>
         </RevealWrapper>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {education.map((edu, i) => (
-            <RevealWrapper key={edu.id} delay={i * 0.12}>
-              <div className="p-9 border border-[var(--line)] rounded-card bg-card transition-transform duration-350 hover:-translate-y-1">
+            <RevealWrapper key={edu.id} delay={i * 0.12} className="h-full">
+              <div className="h-full p-9 border border-[var(--line)] rounded-card bg-card transition-transform duration-350 hover:-translate-y-1">
                 <div className="font-mono text-xs text-ink-3 tracking-[0.06em] mb-3.5">{edu.years}</div>
                 <h3 className="font-display italic text-[28px] leading-[1.1] mb-1.5">{edu.school}</h3>
                 <p className="text-[15px] text-ink-2">{edu.degree}</p>
