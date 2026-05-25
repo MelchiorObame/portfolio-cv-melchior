@@ -49,7 +49,7 @@ export function Nav() {
             alt="Melchior Obame"
             width={40}
             height={40}
-            className="nav-logo h-14 w-auto"
+            className="nav-logo h-20 w-auto"
           />
         </a>
 

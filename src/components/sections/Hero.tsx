@@ -1,8 +1,24 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { FiMail, FiPhone, FiLinkedin } from 'react-icons/fi'
 import { StatusPill } from '../ui/StatusPill'
 import { RevealWrapper } from '../ui/RevealWrapper'
 import { marqueeItems } from '../../data/portfolio'
+
+const contactLinks = [
+  { icon: FiPhone,    label: '+33 6 29 18 81 11', href: 'tel:+33629188111' },
+  { icon: FiMail,     label: 'obamemelchior@gmail.com', href: 'mailto:obamemelchior@gmail.com' },
+  { icon: FiLinkedin, label: 'linkedin/melchior-obame', href: 'https://www.linkedin.com/in/melchior-obame' },
+]
+
+const listVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
+}
+const itemVariants = {
+  hidden:  { opacity: 0, x: 20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+}
 
 const marqueeContent = [...marqueeItems, ...marqueeItems]
 
@@ -60,22 +76,49 @@ export function Hero() {
             </h1>
 
             <RevealWrapper delay={0.12}>
-              <dl className="grid grid-cols-[auto_1fr] gap-x-5 gap-y-4 mt-12 max-w-[540px] font-mono text-xs text-ink-2 tracking-[0.04em]">
-                <dt className="uppercase text-ink-3">Rôle</dt>
-                <dd>AI / ML / MLOps — Senior Engineer</dd>
-                <dt className="uppercase text-ink-3">Focus</dt>
-                <dd className="flex flex-wrap gap-1.5">
-                  {['GenAI', 'Multi-Agent', 'MLOps', 'AWS'].map((t) => (
-                    <span key={t} className="px-2 py-0.5 border border-[var(--line)] rounded text-ink">
-                      {t}
-                    </span>
+              <div className="mt-12 flex flex-col sm:flex-row sm:items-start gap-8 sm:gap-12">
+                <dl className="grid grid-cols-[auto_1fr] gap-x-5 gap-y-4 font-mono text-xs text-ink-2 tracking-[0.04em]">
+                  <dt className="uppercase text-ink-3">Rôle</dt>
+                  <dd>AI / ML / MLOps — Senior Engineer</dd>
+                  <dt className="uppercase text-ink-3">Focus</dt>
+                  <dd className="flex flex-wrap gap-1.5">
+                    {['GenAI', 'Multi-Agent', 'MLOps', 'AWS'].map((t) => (
+                      <span key={t} className="px-2 py-0.5 border border-[var(--line)] rounded text-ink">
+                        {t}
+                      </span>
+                    ))}
+                  </dd>
+                  <dt className="uppercase text-ink-3">Lieu</dt>
+                  <dd className="text-ink">Paris, FR</dd>
+                  <dt className="uppercase text-ink-3">Année</dt>
+                  <dd className="text-ink">2026 — currently @ CNP Assurances</dd>
+                </dl>
+
+                {/* Contact links — animated from right */}
+                <motion.ul
+                  variants={listVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="flex flex-col gap-3 sm:ml-auto sm:items-end"
+                >
+                  {contactLinks.map(({ icon: Icon, label, href }) => (
+                    <motion.li key={href} variants={itemVariants}>
+                      <a
+                        href={href}
+                        target={href.startsWith('http') ? '_blank' : undefined}
+                        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="group inline-flex items-center gap-2.5 font-mono text-[11px] text-ink-3 hover:text-accent transition-colors duration-200"
+                      >
+                        <span className="hidden sm:block text-right leading-none">{label}</span>
+                        <span className="sm:hidden leading-none">{label}</span>
+                        <span className="shrink-0 w-7 h-7 rounded-full border border-[var(--line)] grid place-items-center group-hover:border-accent group-hover:bg-accent group-hover:text-accent-ink transition-all duration-200">
+                          <Icon size={12} />
+                        </span>
+                      </a>
+                    </motion.li>
                   ))}
-                </dd>
-                <dt className="uppercase text-ink-3">Lieu</dt>
-                <dd className="text-ink">Paris, FR</dd>
-                <dt className="uppercase text-ink-3">Année</dt>
-                <dd className="text-ink">2026 — currently @ CNP Assurances</dd>
-              </dl>
+                </motion.ul>
+              </div>
             </RevealWrapper>
           </div>
 
