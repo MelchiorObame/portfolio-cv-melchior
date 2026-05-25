@@ -43,11 +43,14 @@ export function Nav() {
         />
 
         {/* Logo */}
-        <a
-          href="#hero"
-          className="font-display italic text-[26px] leading-none tracking-[-0.01em] text-ink relative z-10"
-        >
-          M<span className="text-accent">.</span>Obame
+        <a href="#hero" className="relative z-10 shrink-0">
+          <img
+            src="/images/logo.png"
+            alt="Melchior Obame"
+            width={40}
+            height={40}
+            className="nav-logo h-14 w-auto"
+          />
         </a>
 
         {/* Links */}
