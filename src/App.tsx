@@ -1,21 +1,23 @@
+import { lazy, Suspense } from 'react'
 import { ThemeProvider } from './context/ThemeContext'
 import { CustomCursor } from './components/layout/CustomCursor'
 import { ScrollProgress } from './components/layout/ScrollProgress'
 import { Nav } from './components/layout/Nav'
 import { Footer } from './components/layout/Footer'
 import { Hero } from './components/sections/Hero'
-import { About } from './components/sections/About'
-import { Experience } from './components/sections/Experience'
-import { Projects } from './components/sections/Projects'
-import { Skills } from './components/sections/Skills'
-import { Education } from './components/sections/Education'
-import { Certifications } from './components/sections/Certifications'
-import { Languages } from './components/sections/Languages'
-import { Passions } from './components/sections/Passions'
-import { PhotoGallery } from './components/sections/PhotoGallery'
-import { Links } from './components/sections/Links'
-import { Contact } from './components/sections/Contact'
-import { TweaksPanel } from './components/dev/TweaksPanel'
+
+const About        = lazy(() => import('./components/sections/About').then(m => ({ default: m.About })))
+const Experience   = lazy(() => import('./components/sections/Experience').then(m => ({ default: m.Experience })))
+const Projects     = lazy(() => import('./components/sections/Projects').then(m => ({ default: m.Projects })))
+const Skills       = lazy(() => import('./components/sections/Skills').then(m => ({ default: m.Skills })))
+const Education    = lazy(() => import('./components/sections/Education').then(m => ({ default: m.Education })))
+const Certifications = lazy(() => import('./components/sections/Certifications').then(m => ({ default: m.Certifications })))
+const Languages    = lazy(() => import('./components/sections/Languages').then(m => ({ default: m.Languages })))
+const Passions     = lazy(() => import('./components/sections/Passions').then(m => ({ default: m.Passions })))
+const PhotoGallery = lazy(() => import('./components/sections/PhotoGallery').then(m => ({ default: m.PhotoGallery })))
+const Links        = lazy(() => import('./components/sections/Links').then(m => ({ default: m.Links })))
+const Contact      = lazy(() => import('./components/sections/Contact').then(m => ({ default: m.Contact })))
+const TweaksPanel  = lazy(() => import('./components/dev/TweaksPanel').then(m => ({ default: m.TweaksPanel })))
 
 export default function App() {
   return (
@@ -25,20 +27,26 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Education />
-        <Certifications />
-        <Languages />
-        <Passions />
-        <PhotoGallery />
-        <Links />
-        <Contact />
+        <Suspense fallback={null}>
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Education />
+          <Certifications />
+          <Languages />
+          <Passions />
+          <PhotoGallery />
+          <Links />
+          <Contact />
+        </Suspense>
       </main>
       <Footer />
-      {import.meta.env.DEV && <TweaksPanel />}
+      {import.meta.env.DEV && (
+        <Suspense fallback={null}>
+          <TweaksPanel />
+        </Suspense>
+      )}
     </ThemeProvider>
   )
 }

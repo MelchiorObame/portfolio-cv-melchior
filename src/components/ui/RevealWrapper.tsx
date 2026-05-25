@@ -1,5 +1,5 @@
+import { memo, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
 import { fadeUp } from '../../lib/motionVariants'
 import { useTheme } from '../../hooks/useTheme'
 import { cn } from '../../lib/utils'
@@ -11,7 +11,7 @@ interface RevealWrapperProps {
   as?: keyof React.JSX.IntrinsicElements
 }
 
-export function RevealWrapper({
+export const RevealWrapper = memo(function RevealWrapper({
   children,
   delay = 0,
   className,
@@ -36,4 +36,4 @@ export function RevealWrapper({
       {children}
     </MotionEl>
   )
-}
+})

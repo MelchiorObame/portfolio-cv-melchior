@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { ThemeConfig, Palette, Density, AnimLevel } from '../types/portfolio'
 
 interface ThemeContextValue {
@@ -36,13 +36,18 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, [theme])
 
-  const setPalette = (p: Palette) => setTheme((t) => ({ ...t, palette: p }))
-  const setDensity = (d: Density) => setTheme((t) => ({ ...t, density: d }))
-  const setAnimations = (a: AnimLevel) => setTheme((t) => ({ ...t, animations: a }))
-  const setAccent = (hex: string) => setTheme((t) => ({ ...t, accent: hex }))
+  const setPalette    = useCallback((p: Palette)   => setTheme(t => ({ ...t, palette: p })), [])
+  const setDensity    = useCallback((d: Density)   => setTheme(t => ({ ...t, density: d })), [])
+  const setAnimations = useCallback((a: AnimLevel) => setTheme(t => ({ ...t, animations: a })), [])
+  const setAccent     = useCallback((hex: string)  => setTheme(t => ({ ...t, accent: hex })), [])
+
+  const value = useMemo(
+    () => ({ theme, setPalette, setDensity, setAnimations, setAccent }),
+    [theme, setPalette, setDensity, setAnimations, setAccent],
+  )
 
   return (
-    <ThemeContext.Provider value={{ theme, setPalette, setDensity, setAnimations, setAccent }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   )

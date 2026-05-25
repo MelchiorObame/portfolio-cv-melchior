@@ -15,6 +15,7 @@ export default defineConfig({
           'framer-motion': ['framer-motion'],
           radix: ['@radix-ui/react-dialog'],
           vendor: ['react', 'react-dom', 'react-hook-form', 'zod'],
+          icons: ['react-icons'],
         },
       },
     },
